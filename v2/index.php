@@ -24,7 +24,7 @@
 				<li class="list-group-item">
 					<?php if ( $conf['show_reportedhash'] == '0' ) { ?>Mined<span class="pull-right">&Xi;<?=$stat['unpaid']?></span> <?php } ?>
 					<?php if ( $conf['show_reportedhash'] == '1' ) { ?>Reported Hashrate<span class="pull-right"><?=$stat['reportedhashrate']?> MH/s</span> <?php } ?>
-				</li>				
+				</li>
 				<li class="list-group-item">Effective Hashrate [60 mins]	<span class="pull-right"><?=$stat['hashrate']?></span></li>
 				<li class="list-group-item">Average Hashrate [24 hrs]		<span class="pull-right"><?=$stat['avghashrate']?> MH/s</span></li>
 			</ul>
@@ -42,8 +42,8 @@
 		<?php if ( $conf['show_bar'] == '1' ) { ?>
 		<div class="col-md-12">
 			<div class="progress">
-			  	<div class="progress-bar progress-bar-striped progress-bar-<?=$conf['colour']?> active" role="progressbar" aria-valuenow="<?=$stat['unpaid']?>" aria-valuemin="0" aria-valuemax="100" style="width:<?=number_format($stat['unpaid']*100)?>%">
-			  		<p><?=number_format($stat['unpaid']*100)?>%</p>
+			  	<div class="progress-bar progress-bar-striped progress-bar-<?=$conf['colour']?> active" role="progressbar" aria-valuenow="<?=$stat['unpaid']?>" aria-valuemin="0" aria-valuemax="100" style="width:<?=number_format(($stat['unpaid']/$stat['payout'])*100)?>%">
+			  		<p><?=number_format(($stat['unpaid']/$stat['payout'])*100)?>%</p>
 				</div>
 			</div><br>
 		</div>
