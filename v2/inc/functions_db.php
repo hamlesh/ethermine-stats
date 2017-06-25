@@ -2,5 +2,4 @@
 
 // Database related functions
 
-
 ?>

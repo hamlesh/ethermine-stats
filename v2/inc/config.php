@@ -18,29 +18,28 @@
 
 
 // --- Timezone ---
-// Set this to your timezone, so that "next eth" and other date/time related 
+// Set this to your timezone, so that "next eth" and other date/time related
 // statistics are calculated so they are relevant to you.
 // To find your timezone see - http://php.net/manual/en/timezones.php
-	date_default_timezone_set('Europe/London'); 
+	date_default_timezone_set('Europe/London');
 
 
 // --- Cache File ---
 // In the event that the Ethermine API returns no data, a local cache file
 // is created and used.  No data is returned from the API query when there
-// are too many requests being made.  Specify what you'd like your cache 
+// are too many requests being made.  Specify what you'd like your cache
 // file to be called.  This file will be readable from your webserver, so
-// use a random name to maintain the obscurity of your mining wallet 
+// use a random name to maintain the obscurity of your mining wallet
 // address.
 	$conf['cache_file'] = 'changeme.tmp';
 
 
-	
 // -------------------------
 // --- OPTIONAL SETTINGS ---
 // -------------------------
 
-// Set the base FIAT currency (ISO 4217) you are interested in.  Currently 
-// I have only created support for USD, EUR and GBP.  If you want others 
+// Set the base FIAT currency (ISO 4217) you are interested in.  Currently
+// I have only created support for USD, EUR and GBP.  If you want others
 // adding let me know.
 	$conf['fiat'] = 'gbp';
 
@@ -54,7 +53,7 @@
 // Yes = 1, No = 0
 
 	// Display the mining progress bar
-	$conf['show_bar'] = '1';	
+	$conf['show_bar'] = '1';
 
 	// Display stats related to the mining performance of time period
 	$conf['show_min'] = '1';		// per minute performace
@@ -66,7 +65,7 @@
 
 // --- Show Hashrate ---
 // Some miners (qtminer, ethminer etc) don't correctly "report" a hashrate to
-// to ethermine.org.  Check your stats via ethermine.org, if there is no 
+// to ethermine.org.  Check your stats via ethermine.org, if there is no
 // figure shown for "Reported Hashrate", then set this to 0. Setting this to
 // 0 will replace the "Reported Hashrate" section on the dashboard with the
 // value of ETH mined so far on the job cycle.
@@ -78,7 +77,7 @@
 // --- DEBUG SETTINGS ---
 // ----------------------
 
-// You can safely leave these settings as they are, unless you know what 
+// You can safely leave these settings as they are, unless you know what
 // you are doing and need to change them for some reason.
 ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);

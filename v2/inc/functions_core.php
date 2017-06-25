@@ -49,7 +49,7 @@ function core_calc_remaining($fin) {
 	$hours = gmdate('G', floor($fin * 3600));
 	$minutes = gmdate('i', floor($fin * 3600));
 	// $seconds = gmdate('s', floor($fin * 3600));
-	
+
 	$output = '';
 	if ( $days != '0' ) { if ( $days != '1' ) { $p = ' days'; } else { $p = ' day'; } $output = $output.$days.$p; }
 	if ( $hours != '0' ) { if ( $hours != '1' ) { $p = ' hrs'; } else { $p = ' hr'; } $output = $output.' '.$hours.$p; }
@@ -76,7 +76,7 @@ function core_get_transactions($fin) {
 	$graphtime = array();
 	$grapheth = array();
 	$merged = array();
-	
+
 	foreach ($data as &$val) {
 		$obj = explode(',', $val);
 		$otime = str_replace('time:', '', str_replace('"', '', $obj[8]));
@@ -89,7 +89,7 @@ function core_get_transactions($fin) {
 		}
 	}
 	sort($merged);
-	
+
 	foreach ($merged as &$val) {
 		$obj = explode(',', $val);
 		$graphtime[] = $obj[0];
@@ -159,7 +159,7 @@ $stat['eday'] = $stat['ehour']*24;
 $stat['eweek'] = $stat['eday']*7;
 $stat['emonth'] = ( $stat['eweek']*52 )/12;
 
-if ( $stat['ehour'] != '0' ) { 
+if ( $stat['ehour'] != '0' ) {
 
 	$stat['bmin'] = $obj['btcPerMin'];
 	$stat['bhour'] = $stat['bmin']*60;

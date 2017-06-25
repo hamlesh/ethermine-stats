@@ -2,5 +2,4 @@
 
 // External services/APIs functions file
 
-
 ?>
