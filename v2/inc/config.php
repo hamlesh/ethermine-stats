@@ -43,6 +43,21 @@
 // adding let me know.
 	$conf['fiat'] = 'gbp';
 
+
+// --- Power Usage (for profitability calculator) ---
+// Average power consumption of your mining rig in Watts. If you have 1 mining
+// rig that in total consumes 300 watts, then this is simply 300.
+// If however you have two rigs, one consuming 300 and one consuming 400, as
+// long as they are subject to the same electricity costs, you can combine them
+// here as 700 Watts
+	$conf['watts'] = '300';
+
+
+// Put how much your electricity costs per kWh. I guess the unit currency would be
+// the same as fiat?
+	$conf['kwh_cost'] = '0.13901';
+
+
 // Set the colour scheme of all elements using the bootstrap utility
 // standards (info = blue, success = green, warning = yellow, danger = red).
 	$conf['colour'] = 'success';
@@ -54,6 +69,9 @@
 
 	// Display the mining progress bar
 	$conf['show_bar'] = '1';
+
+	// Display overall profitability based on energy cost
+	$conf['show_kwh'] = '0';
 
 	// Display stats related to the mining performance of time period
 	$conf['show_min'] = '1';		// per minute performace

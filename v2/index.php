@@ -47,7 +47,7 @@
 				</div>
 			</div><br>
 		</div>
-		<?php } ?>	
+		<?php } ?>
 
 		<div class="col-md-3">
 			<ul class="list-group">
@@ -63,11 +63,11 @@
 		<div class="col-md-3">
 			<ul class="list-group">
 				<li class="list-group-item list-group-item-<?=$conf['colour']?>"><h4>&Xi;TH -> <?=$fiat['code']?></h4></li>
-				<?php if ( $conf['show_min'] == '1' ) { ?>		<li class="list-group-item">Minute 	<span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['emin']*$ethtofiat),2)?></span></li>	<?php } ?>
-				<?php if ( $conf['show_hour'] == '1' ) { ?>	<li class="list-group-item">Hour 	<span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['ehour']*$ethtofiat),2)?></span></li>	<?php } ?>
-				<?php if ( $conf['show_day'] == '1' ) { ?>		<li class="list-group-item">Day 	<span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['eday']*$ethtofiat),2)?></span></li>	<?php } ?>
-				<?php if ( $conf['show_week'] == '1' ) { ?>	<li class="list-group-item">Week 	<span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['eweek']*$ethtofiat),2)?></span></li>	<?php } ?>
-				<?php if ( $conf['show_month'] == '1' ) { ?>	<li class="list-group-item">Month 	<span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['emonth']*$ethtofiat),2)?></span></li>	<?php } ?>
+				<?php if ( $conf['show_min'] == '1' ) { ?>    <li class="list-group-item">Minute      <span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['emin']*$ethtofiat),2)?><?php if ( $conf['show_kwh'] == '1' ) { ?><span style="color: <?=(($stat['epmin'] >= 0) ? "green" : "red")?>"> [<?=$fiat['sym']?><?=number_format($stat['epmin'],2)?>]</span><?php } ?></span></li><?php } ?>
+				<?php if ( $conf['show_hour'] == '1' ) { ?> <li class="list-group-item">Hour  <span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['ehour']*$ethtofiat),2)?><?php if ( $conf['show_kwh'] == '1' ) { ?><span style="color: <?=(($stat['ephour'] >= 0) ? "green" : "red")?>"> [<?=$fiat['sym']?><?=number_format($stat['ephour'],2)?>]</span><?php } ?></span></li><?php } ?>
+				<?php if ( $conf['show_day'] == '1' ) { ?>    <li class="list-group-item">Day   <span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['eday']*$ethtofiat),2)?><?php if ( $conf['show_kwh'] == '1' ) { ?><span style="color: <?=(($stat['epday'] >= 0) ? "green" : "red")?>"> [<?=$fiat['sym']?><?=number_format($stat['epday'],2)?>]</span><?php } ?></span></li><?php } ?>
+				<?php if ( $conf['show_week'] == '1' ) { ?> <li class="list-group-item">Week  <span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['eweek']*$ethtofiat),2)?><?php if ( $conf['show_kwh'] == '1' ) { ?><span style="color: <?=(($stat['epweek'] >= 0) ? "green" : "red")?>"> [<?=$fiat['sym']?><?=number_format($stat['epweek'],2)?>]</span><?php } ?></span></li><?php } ?>
+				<?php if ( $conf['show_month'] == '1' ) { ?>  <li class="list-group-item">Month       <span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['emonth']*$ethtofiat),2)?><?php if ( $conf['show_kwh'] == '1' ) { ?><span style="color: <?=(($stat['epmonth'] >= 0) ? "green" : "red")?>"> [<?=$fiat['sym']?><?=number_format($stat['epmonth'],2)?>]</span><?php } ?></span></li><?php } ?>
 			</ul>
 		</div>
 
@@ -85,11 +85,11 @@
 		<div class="col-md-3">
 			<ul class="list-group">
 				<li class="list-group-item list-group-item-<?=$conf['colour']?>"><h4>฿TC -> <?=$fiat['code']?></h4></li>
-				<?php if ( $conf['show_min'] == '1' ) { ?>		<li class="list-group-item">Minute 	<span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['bmin']*$btctofiat),2)?></span></li>	<?php } ?>
-				<?php if ( $conf['show_hour'] == '1' ) { ?>	<li class="list-group-item">Hour 	<span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['bhour']*$btctofiat),2)?></span></li>	<?php } ?>
-				<?php if ( $conf['show_day'] == '1' ) { ?>		<li class="list-group-item">Day 	<span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['bday']*$btctofiat),2)?></span></li>	<?php } ?>
-				<?php if ( $conf['show_week'] == '1' ) { ?>	<li class="list-group-item">Week 	<span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['bweek']*$btctofiat),2)?></span></li>	<?php } ?>
-				<?php if ( $conf['show_month'] == '1' ) { ?>	<li class="list-group-item">Month 	<span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['bmonth']*$btctofiat),2)?></span></li>	<?php } ?>
+				<?php if ( $conf['show_min'] == '1' ) { ?>    <li class="list-group-item">Minute      <span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['bmin']*$btctofiat),2)?><?php if ( $conf['show_kwh'] == '1' ) { ?><span style="color: <?=(($stat['bpmin'] >= 0) ? "green" : "red")?>"> [<?=$fiat['sym']?><?=number_format($stat['bpmin'],2)?>]</span><?php } ?></span></li><?php } ?>
+				<?php if ( $conf['show_hour'] == '1' ) { ?> <li class="list-group-item">Hour  <span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['bhour']*$btctofiat),2)?><?php if ( $conf['show_kwh'] == '1' ) { ?><span style="color: <?=(($stat['bphour'] >= 0) ? "green" : "red")?>"> [<?=$fiat['sym']?><?=number_format($stat['bphour'],2)?>]</span><?php } ?></span></li><?php } ?>
+				<?php if ( $conf['show_day'] == '1' ) { ?>    <li class="list-group-item">Day   <span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['bday']*$btctofiat),2)?><?php if ( $conf['show_kwh'] == '1' ) { ?><span style="color: <?=(($stat['bpday'] >= 0) ? "green" : "red")?>"> [<?=$fiat['sym']?><?=number_format($stat['bpday'],2)?>]</span><?php } ?></span></li><?php } ?>
+				<?php if ( $conf['show_week'] == '1' ) { ?> <li class="list-group-item">Week  <span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['bweek']*$btctofiat),2)?><?php if ( $conf['show_kwh'] == '1' ) { ?><span style="color: <?=(($stat['bpweek'] >= 0) ? "green" : "red")?>"> [<?=$fiat['sym']?><?=number_format($stat['bpweek'],2)?>]</span><?php } ?></span></li><?php } ?>
+				<?php if ( $conf['show_month'] == '1' ) { ?>  <li class="list-group-item">Month       <span class="pull-right"><?=$fiat['sym']?><?=number_format(($stat['bmonth']*$btctofiat),2)?><?php if ( $conf['show_kwh'] == '1' ) { ?><span style="color: <?=(($stat['bpmonth'] >= 0) ? "green" : "red")?>"> [<?=$fiat['sym']?><?=number_format($stat['bpmonth'],2)?>]</span><?php } ?></span></li><?php } ?>
 			</ul>
 		</div>
 
