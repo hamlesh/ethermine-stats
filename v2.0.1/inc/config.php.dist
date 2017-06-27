@@ -7,14 +7,14 @@
 // --- Encryption key for URLS ---
 // Used to mask links and other private data configured within miner stats
 // Set this to a random string of at least 20 characters
-	$conf['key'] = '7fvLnNwjbxOb8XR0EaI';
+	$conf['key'] = '86XzjlVmdY4TY8NHLD4*';
 
 
 // --- Wallet/Account Address ---
 // Used to pull stats from ethermine, as well as the etherium blockchain
 // This is the same as "<Your_Ethereum_Address>" when configuring your miner
 // on ethermine.org
-	$conf['wallet'] = '835B52aF044E9b8AC5585348998BA3918c089463';
+	$conf['wallet'] = '70d37408c284178565c8091356684cb87d55f2f4';
 
 
 // --- Timezone ---
@@ -31,7 +31,7 @@
 // file to be called.  This file will be readable from your webserver, so
 // use a random name to maintain the obscurity of your mining wallet 
 // address.
-	$conf['cache_file'] = 'hafldshfla3aksdj.tmp';
+	$conf['cache_file'] = 'changeme.tmp';
 
 
 	
@@ -46,7 +46,7 @@
 
 // Set the colour scheme of all elements using the bootstrap utility
 // standards (info = blue, success = green, warning = yellow, danger = red).
-	$conf['colour'] = 'info';
+	$conf['colour'] = 'success';
 
 
 // --- Display Settings ---
@@ -54,11 +54,11 @@
 // Yes = 1, No = 0
 
 	// Display the mining progress bar
-	$conf['show_bar'] = '0';	
+	$conf['show_bar'] = '1';	
 
 	// Display stats related to the mining performance of time period
-	$conf['show_min'] = '0';		// per minute performace
-	$conf['show_hour'] = '0';		// per hour performace
+	$conf['show_min'] = '1';		// per minute performace
+	$conf['show_hour'] = '1';		// per hour performace
 	$conf['show_day'] = '1';		// per day performance
 	$conf['show_week'] = '1';		// per week performance
 	$conf['show_month'] = '1';		// per month performance
