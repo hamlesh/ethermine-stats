@@ -49,7 +49,7 @@ function core_calc_remaining($fin) {
 	$hours = gmdate('G', floor($fin * 3600));
 	$minutes = gmdate('i', floor($fin * 3600));
 	// $seconds = gmdate('s', floor($fin * 3600));
-	
+
 	$output = '';
 	if ( $days != '0' ) { if ( $days != '1' ) { $p = ' days'; } else { $p = ' day'; } $output = $output.$days.$p; }
 	if ( $hours != '0' ) { if ( $hours != '1' ) { $p = ' hrs'; } else { $p = ' hr'; } $output = $output.' '.$hours.$p; }
@@ -76,7 +76,7 @@ function core_get_transactions($fin) {
 	$graphtime = array();
 	$grapheth = array();
 	$merged = array();
-	
+
 	foreach ($data as &$val) {
 		$obj = explode(',', $val);
 		$otime = str_replace('time:', '', str_replace('"', '', $obj[8]));
@@ -89,7 +89,7 @@ function core_get_transactions($fin) {
 		}
 	}
 	sort($merged);
-	
+
 	foreach ($merged as &$val) {
 		$obj = explode(',', $val);
 		$graphtime[] = $obj[0];
@@ -159,7 +159,7 @@ $stat['eday'] = $stat['ehour']*24;
 $stat['eweek'] = $stat['eday']*7;
 $stat['emonth'] = ( $stat['eweek']*52 )/12;
 
-if ( $stat['ehour'] != '0' ) { 
+if ( $stat['ehour'] != '0' ) {
 
 	$stat['bmin'] = $obj['btcPerMin'];
 	$stat['bhour'] = $stat['bmin']*60;
@@ -179,6 +179,32 @@ if ( $stat['ehour'] != '0' ) {
 	$stat['hoursuntil'] = $stat['eneeded'] / $stat['ehour'];
 
 	$stat['paytime'] = date("D d M, H:i:s", time() + ($stat['hoursuntil'] * 3600) );
+
+	if ($conf['show_kwh'] == 1) {
+		//Calculate profit based on energy costs.
+		$kwh['kw_per_hr'] = ($conf['watts'] / 1000);
+		$kwh['cost_hour'] = ($kwh['kw_per_hr'] * $conf['kwh_cost']);
+
+		$kwh['cost_min'] = ($kwh['cost_hour'] / 60);
+		$kwh['cost_day'] = ($kwh['cost_hour'] * 24);
+		$kwh['cost_week'] = ($kwh['cost_day'] * 7);
+		$kwh['cost_month'] = ($kwh['cost_week'] * 52) / 12;
+
+		// Profit values - What we mine vs what it costs us for electricity
+		//ETH
+		$stat['epmin'] = ($stat['emin'] * $ethtofiat) - $kwh['cost_min'];
+		$stat['ephour'] = ($stat['ehour'] * $ethtofiat) - $kwh['cost_hour'];
+		$stat['epday'] = ($stat['eday'] * $ethtofiat) - $kwh['cost_day'];
+		$stat['epweek'] = ($stat['eweek'] * $ethtofiat) - $kwh['cost_week'];
+		$stat['epmonth'] = ($stat['emonth'] * $ethtofiat) - $kwh['cost_month'];
+		//BTC
+		$stat['bpmin'] = ($stat['bmin'] * $btctofiat) - $kwh['cost_min'];
+		$stat['bphour'] = ($stat['bhour'] * $btctofiat) - $kwh['cost_hour'];
+		$stat['bpday'] = ($stat['bday'] * $btctofiat) - $kwh['cost_day'];
+		$stat['bpweek'] = ($stat['bweek'] * $btctofiat) - $kwh['cost_week'];
+		$stat['bpmonth'] = ($stat['bmonth'] * $btctofiat) - $kwh['cost_month'];
+
+	}
 
 } else { $stat['waiting'] = 1; }
 

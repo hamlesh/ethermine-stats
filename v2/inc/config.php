@@ -18,31 +18,45 @@
 
 
 // --- Timezone ---
-// Set this to your timezone, so that "next eth" and other date/time related 
+// Set this to your timezone, so that "next eth" and other date/time related
 // statistics are calculated so they are relevant to you.
 // To find your timezone see - http://php.net/manual/en/timezones.php
-	date_default_timezone_set('Europe/London'); 
+	date_default_timezone_set('Europe/London');
 
 
 // --- Cache File ---
 // In the event that the Ethermine API returns no data, a local cache file
 // is created and used.  No data is returned from the API query when there
-// are too many requests being made.  Specify what you'd like your cache 
+// are too many requests being made.  Specify what you'd like your cache
 // file to be called.  This file will be readable from your webserver, so
-// use a random name to maintain the obscurity of your mining wallet 
+// use a random name to maintain the obscurity of your mining wallet
 // address.
 	$conf['cache_file'] = 'changeme.tmp';
 
 
-	
 // -------------------------
 // --- OPTIONAL SETTINGS ---
 // -------------------------
 
-// Set the base FIAT currency (ISO 4217) you are interested in.  Currently 
-// I have only created support for USD, EUR and GBP.  If you want others 
+// Set the base FIAT currency (ISO 4217) you are interested in.  Currently
+// I have only created support for USD, EUR and GBP.  If you want others
 // adding let me know.
 	$conf['fiat'] = 'gbp';
+
+
+// --- Power Usage (for profitability calculator) ---
+// Average power consumption of your mining rig in Watts. If you have 1 mining
+// rig that in total consumes 300 watts, then this is simply 300.
+// If however you have two rigs, one consuming 300 and one consuming 400, as
+// long as they are subject to the same electricity costs, you can combine them
+// here as 700 Watts
+	$conf['watts'] = '300';
+
+
+// Put how much your electricity costs per kWh. I guess the unit currency would be
+// the same as fiat?
+	$conf['kwh_cost'] = '0.13901';
+
 
 // Set the colour scheme of all elements using the bootstrap utility
 // standards (info = blue, success = green, warning = yellow, danger = red).
@@ -54,7 +68,10 @@
 // Yes = 1, No = 0
 
 	// Display the mining progress bar
-	$conf['show_bar'] = '1';	
+	$conf['show_bar'] = '1';
+
+	// Display overall profitability based on energy cost
+	$conf['show_kwh'] = '0';
 
 	// Display stats related to the mining performance of time period
 	$conf['show_min'] = '1';		// per minute performace
@@ -66,7 +83,7 @@
 
 // --- Show Hashrate ---
 // Some miners (qtminer, ethminer etc) don't correctly "report" a hashrate to
-// to ethermine.org.  Check your stats via ethermine.org, if there is no 
+// to ethermine.org.  Check your stats via ethermine.org, if there is no
 // figure shown for "Reported Hashrate", then set this to 0. Setting this to
 // 0 will replace the "Reported Hashrate" section on the dashboard with the
 // value of ETH mined so far on the job cycle.
@@ -78,7 +95,7 @@
 // --- DEBUG SETTINGS ---
 // ----------------------
 
-// You can safely leave these settings as they are, unless you know what 
+// You can safely leave these settings as they are, unless you know what
 // you are doing and need to change them for some reason.
 ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
