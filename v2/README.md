@@ -16,7 +16,7 @@ creation of ethermine-stats :)
 
 # Release History
 
-## v2 - 07/2017
+## v2 - 06/2017
 Some major changes in the way the codebase works, with much faster load times.
 Replaced coindesk and fixer apis with cryptonator.  Local file cache to handle 
 busy/empty response from Ethermine API.

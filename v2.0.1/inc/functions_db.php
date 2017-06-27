@@ -1,0 +1,6 @@
+<?php
+
+// Database related functions
+
+
+?>
